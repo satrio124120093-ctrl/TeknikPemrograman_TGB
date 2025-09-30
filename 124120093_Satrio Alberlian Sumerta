@@ -1,0 +1,37 @@
+from abc import ABC, abstractmethod
+
+# Kelas abstrak
+class Survey(ABC):
+    @abstractmethod
+    def processing(self):
+        pass
+
+
+# Turunan 1
+class SeismicSurvey(Survey):
+    def processing(self):
+        print("Seismic processing: filtering, stacking, migration.")
+
+
+# Turunan 2
+class GravitySurvey(Survey):
+    def processing(self):
+        print("Gravity processing: upward continuation, Bouguer correction.")
+
+
+# Turunan 3
+class MagnetikSurvey(Survey):
+    def processing(self):
+        print("Magnetik processing: anomaly mapping, diurnal correction.")
+
+
+# Membuat list berisi objek-objek turunan
+surveys = [
+    SeismicSurvey(),
+    GravitySurvey(),
+    MagnetikSurvey()
+]
+
+# Iterasi untuk memanggil processing()
+for s in surveys:
+    s.processing() 
